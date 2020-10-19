@@ -1,0 +1,31 @@
+{
+    "Backups": {
+        "Fortnite": [],
+        "Valorant": [],
+        "MinecraftDungeons": [],
+        "DeadByDaylight": [],
+        "BattleBreakers": [],
+        "Borderlands3": [],
+        "Spellbreak": [],
+        "Unknown": []
+    },
+    "GlobalMessages": {
+        "4.0.0.0": [
+            {
+                "Message": "",
+                "Color": "#EFEFEF",
+                "NewLine": false
+            }
+        ]
+    },
+    "Updater": {
+        "Version": "3.1.1.3",
+        "Url": "https://github.com/iAmAsval/FModel/releases/latest/download/FModel.zip",
+        "Changelog": "https://github.com/iAmAsval/FModel/releases/latest",
+        "Mandatory": {
+            "Value": false,
+            "MinimumVersion": "4.0.0.0",
+            "UpdateMode": 0
+        }
+    }
+}
