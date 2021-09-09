@@ -14,11 +14,11 @@ class NotFound extends React.Component {
         return (
             <div className='mx-12 flex flex-col md:flex-row h-screen'>
                 <Helmet>
-                    <title>FModel - Page not found</title>
+                    <title>Page not found - FModel</title>
                 </Helmet>
 
                 <div className='mt-auto md:mb-auto mr-auto md:mr-4 ml-auto'>
-                    <Lottie loop autoplay animationData={error} style={{width: 'auto', maxWidth: '384px'}} />
+                    <Lottie className='w-auto max-w-sm' loop autoplay animationData={error} />
                 </div>
                 <div className='md:mt-auto mb-auto md:mr-auto'>
                     <h1 className='text-red-500 text-4xl font-black font-sans mb-2 text-center md:text-left'>Page not found</h1>
