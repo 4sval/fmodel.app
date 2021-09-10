@@ -3,7 +3,7 @@ import Lottie from 'lottie-react';
 import { Button, Pane, CommentIcon, DownloadIcon } from 'evergreen-ui'
 import Navbar from '../components/Navbar';
 import { formatBytes } from '../helpers/formatBytes';
-import game from '../assets/lotties/game.json';
+import scan from '../assets/lotties/scan.json';
 
 class Home extends React.Component {
     constructor(props) {
@@ -71,7 +71,7 @@ class Home extends React.Component {
                                     </Button>
                                 </Pane>
                             </div>
-                            <Lottie className='w-auto max-w-2xl' loop autoplay animationData={game} />
+                            <Lottie className='w-auto max-w-2xl' loop autoplay animationData={scan} />
                         </Pane>
                     </div>
                 </div>

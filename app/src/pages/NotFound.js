@@ -21,7 +21,7 @@ class NotFound extends React.Component {
                     <Lottie className='w-auto max-w-sm' loop autoplay animationData={error} />
                 </div>
                 <div className='md:mt-auto mb-auto md:mr-auto'>
-                    <h1 className='text-red-500 text-4xl font-black font-sans mb-2 text-center md:text-left'>Page not found</h1>
+                    <h1 className='text-yellow-400 text-4xl font-black font-sans mb-2 text-center md:text-left'>Page not found</h1>
                     <p className='text-gray-800 md:max-w-xl text-center md:text-left'>We’re sorry but it appears that we can’t find the page you were looking for. Usually this occurs because of a page that previously existed was removed or you’ve mistyped the address.</p>
                 </div>
             </div>
