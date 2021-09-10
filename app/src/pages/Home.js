@@ -2,8 +2,12 @@ import React from 'react';
 import Lottie from 'lottie-react';
 import { Button, Pane, CommentIcon, DownloadIcon } from 'evergreen-ui'
 import Navbar from '../components/Navbar';
+import SpCard from '../components/SpCard';
 import { formatBytes } from '../helpers/formatBytes';
 import scan from '../assets/lotties/scan.json';
+import star from '../assets/lotties/star.json';
+import download from '../assets/lotties/download.json';
+import folder from '../assets/lotties/folder.json';
 
 class Home extends React.Component {
     constructor(props) {
@@ -58,7 +62,7 @@ class Home extends React.Component {
                         <Navbar />
                         <Pane className='mt-5' display='flex' alignItems='center' justifyContent='center'>
                             <div className='mr-20 font-sans'>
-                                <h1 className='mb-5 text-7xl text-gray-800 font-sans font-black'>Software for exploring<br />Unreal Engine 4-5 games</h1>
+                                <h1 className='mb-5 text-7xl text-gray-800 font-sans font-black'>Software for exploring<br />Unreal Engine games</h1>
                                 <p className='mb-5 text-base text-blue-900 font-sans'>
                                     Ever wanted to explore game files created by Unreal Engine? We've got you covered.
                                 </p>
@@ -76,12 +80,28 @@ class Home extends React.Component {
                     </div>
                 </div>
                 <div className='bg-blue-50'>
-                    <div className='p-20'>
-                        <h1 className='text-center text-lg font-semibold uppercase'>Social Proof</h1>
-                        <p className='text-center'>
-                            FModel was downloaded {downloadCount.toLocaleString()} times (x{latest.downloadCount.toLocaleString()} for v{latest.version}),
-                            has {starCount} stars, {forkCount} forks and is in a {formatBytes(latest.zipSize)} zip file
-                        </p>
+                    <div className='p-20 flex justify-center items-center gap-32'>
+                        <div className='transform -rotate-3 hover:rotate-0'>
+                            <SpCard title='STARS & FORKS' bgColor='#fffaed' lottieData={star}>
+                                <div>
+                                    <p className='text-xs text-gray-800 font-sans'>{starCount}</p>
+                                    <p className='text-xs text-gray-800 font-sans'>{forkCount}</p>
+                                </div>
+                            </SpCard>
+                        </div>
+                        <div className='transform rotate-6 hover:rotate-0'>
+                            <SpCard size='w-80 h-24' title='DOWNLOADS' bgColor='#ffeded' lottieData={download}>
+                                <div>
+                                    <p className='text-xs text-gray-800 font-sans'>x{downloadCount.toLocaleString()} Total</p>
+                                    <p className='text-xs text-gray-800 font-sans'>x{latest.downloadCount.toLocaleString()} Latest ({latest.version})</p>
+                                </div>
+                            </SpCard>
+                        </div>
+                        <div className='transform -rotate-3 hover:rotate-0'>
+                            <SpCard title='ZIP SIZE' bgColor='#f7edff' lottieData={folder}>
+                                <p className='text-xs text-gray-800 font-sans'>{formatBytes(latest.zipSize)}</p>
+                            </SpCard>
+                        </div>
                     </div>
                 </div>
             </>
