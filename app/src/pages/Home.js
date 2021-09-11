@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'lottie-react';
-import { Button, Pane, CommentIcon, DownloadIcon } from 'evergreen-ui'
+import Marquee from "react-fast-marquee";
 import Navbar from '../components/Navbar';
 import SpCard from '../components/SpCard';
 import { formatBytes } from '../helpers/formatBytes';
@@ -8,6 +8,7 @@ import scan from '../assets/lotties/scan.json';
 import star from '../assets/lotties/star.json';
 import download from '../assets/lotties/download.json';
 import folder from '../assets/lotties/folder.json';
+import creation from '../assets/lotties/creation.json';
 
 class Home extends React.Component {
     constructor(props) {
@@ -16,10 +17,12 @@ class Home extends React.Component {
             starCount: 0,
             forkCount: 0,
             downloadCount: 0,
+            createdAt: undefined,
             latest: {
-                version: '',
-                downloadCount: 0,
-                zipSize: 0
+                version: undefined,
+                downloadCount: undefined,
+                zipSize: undefined,
+                updatedAt: undefined
             }
         }
     }
@@ -30,7 +33,8 @@ class Home extends React.Component {
             .then(data => {
                 this.setState({
                     starCount: data.stargazers_count,
-                    forkCount: data.forks_count
+                    forkCount: data.forks_count,
+                    createdAt: data.created_at,
                 });
 
                 fetch(data.releases_url.replace('{/id}', ''))
@@ -43,9 +47,10 @@ class Home extends React.Component {
                             this.setState((prevState) => ({
                                 downloadCount: prevState.downloadCount + asset.download_count,
                                 latest: {
-                                    version: prevState.latest.version === '' ? release.tag_name : prevState.latest.version,
-                                    downloadCount: prevState.latest.downloadCount === 0 ? asset.download_count : prevState.latest.downloadCount,
-                                    zipSize: prevState.latest.zipSize === 0 ? asset.size : prevState.latest.zipSize
+                                    version: prevState.latest.version ?? release.tag_name,
+                                    downloadCount: prevState.latest.downloadCount ?? asset.download_count,
+                                    zipSize: prevState.latest.zipSize ?? asset.size,
+                                    updatedAt: prevState.latest.updatedAt ?? asset.updated_at
                                 }
                             }));
                         });
@@ -54,55 +59,72 @@ class Home extends React.Component {
     }
 
     render() {
-        const { starCount, forkCount, downloadCount, latest } = this.state;
+        const { starCount, forkCount, downloadCount, createdAt, latest } = this.state;
         return (
             <>
                 <div className='bg-blue-100'>
-                    <div className='py-5 px-20'>
+                    <div className='py-5 px-7 sm:px-12 md:px-40'>
                         <Navbar />
-                        <Pane className='mt-5' display='flex' alignItems='center' justifyContent='center'>
-                            <div className='mr-20 font-sans'>
-                                <h1 className='mb-5 text-7xl text-gray-800 font-sans font-black'>Software for exploring<br />Unreal Engine games</h1>
-                                <p className='mb-5 text-base text-blue-900 font-sans'>
+                        <div className='mt-5 flex flex-col-reverse lg:flex-row justify-between lg:justify-center items-center'>
+                            <div className='grid font-sans gap-5'>
+                                <h1 className='text-3xl lg:text-4xl xl:text-6xl 2xl:text-7xl text-center lg:text-left text-gray-800 font-black'>Software for exploring<br />Unreal Engine games</h1>
+                                <p className='text-sm lg:text-base text-center lg:text-left text-blue-900'>
                                     Ever wanted to explore game files created by Unreal Engine? We've got you covered.
                                 </p>
-                                <Pane display='flex' alignItems='center'>
-                                    <Button appearance='primary' size='large' marginRight={16} iconBefore={DownloadIcon}>
-                                        <a href='/download'>Download Now</a>
-                                    </Button>
-                                    <Button size='large' marginRight={16} iconBefore={CommentIcon}>
-                                        <a href='/discord'>Join Our Discord</a>
-                                    </Button>
-                                </Pane>
+                                <div className='flex justify-center lg:justify-start items-center gap-4 whitespace-nowrap text-xs lg:text-base'>
+                                    <a className='py-2 px-4 rounded border font-medium text-white bg-blue-500 border-blue-300 hover:bg-blue-600 focus:ring-1' href='/download'>
+                                        <div className='flex items-center gap-3'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" />
+                                            </svg>
+                                            <span>Download Now</span>
+                                        </div>
+                                    </a>
+                                    <a className='py-2 px-4 rounded border font-medium text-gray-800 bg-gray-100 border-gray-50 hover:bg-gray-200 focus:ring-2' href='/download'>
+                                        <div className='flex items-center gap-3'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                                                <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                                            </svg>
+                                            <span>Join Our Discord</span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            <Lottie className='w-auto max-w-2xl' loop autoplay animationData={scan} />
-                        </Pane>
+                            <Lottie className='w-auto max-w-sm lg:max-w-2xl' loop autoplay animationData={scan} />
+                        </div>
                     </div>
                 </div>
-                <div className='bg-blue-50'>
-                    <div className='p-20 flex justify-center items-center gap-32'>
-                        <div className='transform -rotate-3 hover:rotate-0'>
-                            <SpCard title='STARS & FORKS' bgColor='#fffaed' lottieData={star}>
-                                <div>
-                                    <p className='text-xs text-gray-800 font-sans'>{starCount}</p>
-                                    <p className='text-xs text-gray-800 font-sans'>{forkCount}</p>
+                <div className='bg-blue-50 overflow-hidden'>
+                    <Marquee speed={50} gradient={false}>
+                        <div className='py-5 px-7 sm:px-12 md:px-40'>
+                            <div className='py-10 lg:py-14 flex items-center gap-12 sm:gap-28 lg:gap-72'>
+                                <div className='transform -rotate-1 hover:rotate-0'>
+                                    <SpCard title='STARS & FORKS' bgColor='#fffaed' lottieData={star}>
+                                        <p className='text-xs text-gray-800 font-sans'>{starCount}</p>
+                                        <p className='text-xs text-gray-800 font-sans'>{forkCount}</p>
+                                    </SpCard>
                                 </div>
-                            </SpCard>
-                        </div>
-                        <div className='transform rotate-6 hover:rotate-0'>
-                            <SpCard size='w-80 h-24' title='DOWNLOADS' bgColor='#ffeded' lottieData={download}>
-                                <div>
-                                    <p className='text-xs text-gray-800 font-sans'>x{downloadCount.toLocaleString()} Total</p>
-                                    <p className='text-xs text-gray-800 font-sans'>x{latest.downloadCount.toLocaleString()} Latest ({latest.version})</p>
+                                <div className='transform rotate-3 hover:rotate-0'>
+                                    <SpCard size='w-80 h-24' title='DOWNLOADS' bgColor='#ffeded' lottieData={download}>
+                                        <p className='text-xs text-gray-800 font-sans'>x{downloadCount.toLocaleString()} Total</p>
+                                        <p className='text-xs text-gray-800 font-sans'>x{latest?.downloadCount?.toLocaleString() ?? 0} Latest ({latest.version})</p>
+                                    </SpCard>
                                 </div>
-                            </SpCard>
+                                <div className='transform rotate-1 hover:rotate-0'>
+                                    <SpCard title='ZIP FILE' bgColor='#f7edff' lottieData={folder}>
+                                        <p className='text-xs text-gray-800 font-sans'>{formatBytes(latest?.zipSize ?? 0)}</p>
+                                        <p className='text-xs text-gray-800 font-sans'>{new Date(latest.updatedAt).toDateString()}</p>
+                                    </SpCard>
+                                </div>
+                                <div className='transform -rotate-3 hover:rotate-0'>
+                                    <SpCard size='w-44 h-16' title='CREATION' bgColor='#edf3ff' lottieData={creation}>
+                                        <p className='text-xs text-gray-800 font-sans'>{new Date(createdAt).toDateString()}</p>
+                                    </SpCard>
+                                </div>
+                            </div>
                         </div>
-                        <div className='transform -rotate-3 hover:rotate-0'>
-                            <SpCard title='ZIP SIZE' bgColor='#f7edff' lottieData={folder}>
-                                <p className='text-xs text-gray-800 font-sans'>{formatBytes(latest.zipSize)}</p>
-                            </SpCard>
-                        </div>
-                    </div>
+                    </Marquee>
                 </div>
             </>
         );
