@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica', 'Arial', 'sans-serif']
+        'sans': ['Lato', 'Roboto', 'sans-serif'],
+        'subtitle': ['Urbanist', 'Roboto']
       }
     },
   },

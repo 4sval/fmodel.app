@@ -1,6 +1,6 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import Lottie from "lottie-react";
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import Lottie from 'lottie-react';
 import error from '../assets/lotties/error.json';
 
 class NotFound extends React.Component {
