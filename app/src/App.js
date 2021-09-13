@@ -13,36 +13,34 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className='w-screen'>
-				<Router>
-					<Switch>
-						{/* real pages */}
-						<Route exact path='/' component={Home} />
-						<Route exact path='/docs' component={Documentation} />
+			<Router>
+				<Switch>
+					{/* real pages */}
+					<Route exact path='/' component={Home} />
+					<Route exact path='/docs' component={Documentation} />
 
-						{/* redirects */}
-						<Route exact path='/discord' component={() => {
-							window.location.replace('https://discord.gg/fdkNYYQ');
-							return null;
-						}} />
-						<Route exact path='/donate' component={() => {
-							window.location.replace('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EP9SSWG8MW4UC&source=url');
-							return null;
-						}} />
-						<Route exact path='/download' component={() => {
-							window.location.replace('https://github.com/iAmAsval/FModel/releases/latest/download/FModel.zip');
-							return null;
-						}} />
-						<Route exact path='/github' component={() => {
-							window.location.replace('https://github.com/iAmAsval/FModel');
-							return null;
-						}} />
+					{/* redirects */}
+					<Route exact path='/discord' component={() => {
+						window.location.replace('https://discord.gg/fdkNYYQ');
+						return null;
+					}} />
+					<Route exact path='/donate' component={() => {
+						window.location.replace('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EP9SSWG8MW4UC&source=url');
+						return null;
+					}} />
+					<Route exact path='/download' component={() => {
+						window.location.replace('https://github.com/iAmAsval/FModel/releases/latest/download/FModel.zip');
+						return null;
+					}} />
+					<Route exact path='/github' component={() => {
+						window.location.replace('https://github.com/iAmAsval/FModel');
+						return null;
+					}} />
 
-						{/* 404 */}
-						<Route component={NotFound} />
-					</Switch>
-				</Router>
-			</div>
+					{/* 404 */}
+					<Route component={NotFound} />
+				</Switch>
+			</Router>
 		);
 	}
 };

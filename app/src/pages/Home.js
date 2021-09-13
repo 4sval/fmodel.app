@@ -77,7 +77,7 @@ class Home extends React.Component {
                                     Ever wanted to explore game files created by Unreal Engine? We've got you covered.
                                 </p>
                                 <div className='flex justify-center lg:justify-start items-center gap-4 whitespace-nowrap text-xs lg:text-base'>
-                                    <a className='py-2 px-4 rounded border font-medium text-white bg-blue-500 border-blue-300 hover:bg-blue-600 focus:ring-1' href='/download'>
+                                    <a className='py-2 px-4 rounded border font-medium text-white bg-blue-500 border-blue-300 hover:bg-blue-600 focus:ring-1' href='/download' target="_blank">
                                         <div className='flex items-center gap-3'>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" />
@@ -85,7 +85,7 @@ class Home extends React.Component {
                                             <span>Download Now</span>
                                         </div>
                                     </a>
-                                    <a className='py-2 px-4 rounded border font-medium text-gray-800 bg-gray-100 border-gray-50 hover:bg-gray-200 focus:ring-2' href='/discord'>
+                                    <a className='py-2 px-4 rounded border font-medium text-gray-800 bg-gray-100 border-gray-50 hover:bg-gray-200 focus:ring-2' href='/discord' target="_blank">
                                         <div className='flex items-center gap-3'>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
@@ -136,19 +136,19 @@ class Home extends React.Component {
                         <div className='grid grid-flow-row lg:grid-flow-col items-center gap-5 lg:gap-20 xl:gap-40 2xl:gap-60 font-sans'>
                             <div className='flex flex-col gap-0 lg:gap-3'>
                                 <h2 className='text-blue-500 text-sm sm:text-base font-subtitle font-semibold uppercase tracking-widest whitespace-nowrap'>FREE AND OPEN-SOURCE</h2>
-                                <h1 className='text-gray-800 text-4xl sm:text-5xl font-extrabold tracking-tighter'>Built for easy-of-use,<br />here's what you can do</h1>
+                                <h1 className='text-gray-800 text-4xl sm:text-5xl font-extrabold tracking-tighter'>Built for ease-of-use,<br />here's what you can do</h1>
                             </div>
-                            <p className='text-gray-600 text-sm text-justify lg:text-left leading-5 sm:leading-6'>FModel is an open-source and beginner-friendly software to datamine games made with Unreal Engine. Its interface was carefully created to be easy to understand, but complete in the features it offers. The ability to create cosmetics icon is one of the key points that made it popular.</p>
+                            <p className='text-gray-600 text-sm text-justify lg:text-left leading-5 sm:leading-6'>FModel is a beginner-friendly and open-source software for data-mining games made with Unreal Engine. Its interface was carefully created to be easy to understand, but complete in the features it offers. The ability to create a cosmetic icon is one of the key points that made it popular.</p>
                         </div>
-                        <div className='pt-10 sm:pt-20 grid grid-flow-row sm:grid-flow-col gap-2.5 lg:gap-10 xl:gap-20 2xl:gap-30 font-sans'>
+                        <div className='pt-10 md:pt-20 grid grid-flow-row md:grid-flow-col gap-2.5 md:gap-10 lg:gap-20 xl:gap-36 2xl:gap-48 font-sans'>
                             <AbilityCard title='Loading modes, next-gen data isolation, two clicks away from your eyes' description="Because it's all about what you can see, being able to load files in different modes is mandatory. FModel has the ability to compare two states of the same game, hence can show new/modified files detected for this new state.">
-                                <List className='flex-shrink-0 w-10 h-10 sm:w-24 sm:h-24' />
+                                <List className='flex-shrink-0 w-10 h-10 md:w-24 md:h-24' />
                             </AbilityCard>
-                            <AbilityCard title='Tens of supported asset type for you to extract, export, save' description="Hello World!">
-                                <Visual className='flex-shrink-0 w-10 h-10 sm:w-24 sm:h-24' />
+                            <AbilityCard title='Tens of supported asset type for you to extract, export, save' description="From a simple .uasset to a more complex .bin file, FModel is able to parse more than 30 types of assets. While a lot of other software skips those assets, FModel will show you a clear view of all the properties contained in it.">
+                                <Visual className='flex-shrink-0 w-10 h-10 md:w-24 md:h-24' />
                             </AbilityCard>
-                            <AbilityCard title='Model viewer, animation viewer, map viewer, sound player' description="Hello World!">
-                                <Cubes className='flex-shrink-0 w-10 h-10 sm:w-24 sm:h-24' />
+                            <AbilityCard title='Model viewer, animation viewer, map viewer, sound player' description="A lot of data viewers right? Well, better than not enough. You can preview Static/Skeletal Meshes, their animations, play audio files while watching a satisfying real-time sound spectrum, and more.">
+                                <Cubes className='flex-shrink-0 w-10 h-10 md:w-24 md:h-24' />
                             </AbilityCard>
                         </div>
                     </div>
