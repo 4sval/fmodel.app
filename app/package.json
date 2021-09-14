@@ -1,6 +1,7 @@
 {
   "name": "app",
   "version": "0.1.0",
+  "homepage": "https://fmodel.app/",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.2.0",
