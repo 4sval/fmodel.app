@@ -80,7 +80,7 @@ class Home extends React.Component {
                                     Ever wanted to explore game files created by <a className='hover:underline' href={UnrealEngineUrl}>Unreal Engine</a>? We've got you covered.
                                 </p>
                                 <div className='flex flex-wrap justify-center lg:justify-start items-center gap-2 whitespace-nowrap text-xs lg:text-base'>
-                                    <a className='py-2.5 px-6 shadow-inner rounded-full font-medium text-white bg-gradient-to-r from-c-blue to-c-purple transform hover:-rotate-1 focus:ring-2' href='/download' target="_blank">
+                                    <a className='py-2.5 px-6 shadow-inner rounded-full font-medium text-white bg-gradient-to-r from-c-blue to-c-purple transform hover:-rotate-1 focus:ring-2' href='/download'>
                                         <div className='flex items-center gap-3'>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" />
@@ -190,7 +190,7 @@ class Home extends React.Component {
                                 <h1 className='text-4xl lg:text-5xl font-black'>Are you ready<br />for becoming a data-miner</h1>
                                 <p className='font-light text-sm sm:text-base'>It's your time to shine, download FModel now, and explore the world of game assets.</p>
                             </div>
-                            <a className='px-6 py-3 lg:px-8 lg:py-5 bg-white hover:bg-c-white text-gray-800 text-xl lg:text-2xl font-black font-subtitle focus:ring-2 focus:ring-inset' href='/download' target="_blank">
+                            <a className='px-6 py-3 lg:px-8 lg:py-5 bg-white hover:bg-c-white text-gray-800 text-xl lg:text-2xl font-black font-subtitle focus:ring-2 focus:ring-inset' href='/download'>
                                 <div className='flex items-center gap-4 whitespace-nowrap'>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" />
