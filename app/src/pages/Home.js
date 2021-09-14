@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import SpCard from '../components/SpCard';
 import AbilityCard from '../components/AbilityCard';
 import FeatureCard from '../components/FeatureCard';
-import { formatBytes } from '../helpers/formatBytes';
+import { formatBytes } from '../helpers/Helper';
 import { UnrealEngineUrl } from '../Constants';
 import { ReactComponent as List } from '../assets/svgs/list.svg';
 import { ReactComponent as Visual } from '../assets/svgs/visual.svg';
@@ -36,7 +36,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://api.github.com/repos/iAmAsval/FModel')
+        fetch('https://api.github.com/repos/iAmAsval/FModel', { cache: "force-cache" })
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -45,7 +45,7 @@ class Home extends React.Component {
                     createdAt: data.created_at,
                 });
 
-                fetch(data.releases_url.replace('{/id}', ''))
+                fetch(data.releases_url.replace('{/id}', ''), { cache: "force-cache" })
                     .then(res => res.json())
                     .then(releases => {
                         releases.forEach(release => {
