@@ -6,6 +6,14 @@ module.exports = {
       fontFamily: {
         'sans': ['Lato', 'Roboto', 'sans-serif'],
         'subtitle': ['Urbanist', 'Roboto']
+      },
+      colors: {
+        'c-bg-blue': '#EBECF0',
+        'c-blue': '#348AC7',
+        'c-pale-red': '#CB2E81',
+        'c-purple': '#7474BF',
+        'c-plum': '#DDA0DD',
+        'c-white': '#EDF0F5'
       }
     },
   },

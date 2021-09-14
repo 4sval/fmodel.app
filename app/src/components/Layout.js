@@ -9,8 +9,8 @@ class Layout extends React.Component {
 
     render() {
         return (
-            <div className='flex flex-wrap flex-row justify-center place-items-center'>
-                <div className='mx-5 sm:mx-10 max-w-screen-2xl'>
+            <div className='flex flex-wrap flex-row justify-center'>
+                <div className='mx-5 sm:mx-10 w-full max-w-screen-2xl'>
                     {this.props.children}
                 </div>
             </div>
