@@ -13,7 +13,7 @@ class Footer extends React.Component {
         return (
             <div className='py-10 bg-c-bg-blue-s text-gray-800'>
                 <Layout>
-                    <div className='flex flex-row justify-evenly items-center whitespace-nowrap'>
+                    <div className='flex flex-row justify-evenly items-center'>
                         <p className='flex-1 text-xs'>Not affiliated with Epic Games<br />© 2021, FModel. All rights reserved. Unreal Engine and its logo are Epic’s trademarks or registered trademarks in the US and elsewhere.</p>
                         <div className='flex-shrink-0'>
                             <a href='/'>
