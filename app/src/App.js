@@ -19,7 +19,7 @@ class App extends React.Component {
 				<Switch>
 					{/* real pages */}
 					<Route exact path='/' component={Home} />
-					{/* <Route exact path='/docs' component={Documentation} /> */}
+					<Route exact path='/docs' component={Documentation} />
 					{/* <Route exact path='/download' component={Download} /> */}
 
 					{/* redirects */}
