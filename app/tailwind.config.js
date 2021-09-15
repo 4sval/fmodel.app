@@ -8,7 +8,8 @@ module.exports = {
         'subtitle': ['Urbanist', 'Roboto']
       },
       colors: {
-        'c-bg-blue': '#EBECF0',
+        'c-bg-blue-h': '#CCD9E6',
+        'c-bg-blue-s': '#E2E9F0',
         'c-blue': '#348AC7',
         'c-pale-red': '#CB2E81',
         'c-purple': '#7474BF',

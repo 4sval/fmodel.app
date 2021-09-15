@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import SpCard from '../components/SpCard';
 import AbilityCard from '../components/AbilityCard';
 import FeatureCard from '../components/FeatureCard';
+import Footer from '../components/Footer';
 import { formatBytes } from '../helpers/Helper';
 import { UnrealEngineUrl } from '../Constants';
 import { ReactComponent as List } from '../assets/svgs/list.svg';
@@ -70,13 +71,13 @@ class Home extends React.Component {
         const { starCount, forkCount, downloadCount, createdAt, latest } = this.state;
         return (
             <>
-                <div className='bg-blue-100 py-5'>
+                <div className='bg-c-bg-blue-h'>
+                    <Navbar />
                     <Layout>
-                        <Navbar />
-                        <div className='mt-5 flex flex-col-reverse lg:flex-row justify-between lg:justify-center items-center'>
+                        <div className='my-5 flex flex-col-reverse lg:flex-row justify-between lg:justify-center items-center'>
                             <div className='grid font-sans gap-5'>
                                 <h1 className='text-3xl lg:text-4xl xl:text-6xl 2xl:text-7xl text-center lg:text-left text-gray-800 font-black tracking-tighter'>Software for exploring<br />Unreal Engine games</h1>
-                                <p className='text-sm lg:text-base text-center lg:text-left text-blue-900'>
+                                <p className='text-sm lg:text-base text-center lg:text-left text-gray-700'>
                                     Ever wanted to explore game files created by <a className='hover:underline' href={UnrealEngineUrl}>Unreal Engine</a>? We've got you covered.
                                 </p>
                                 <div className='flex flex-wrap justify-center lg:justify-start items-center gap-2 whitespace-nowrap text-xs lg:text-base'>
@@ -103,7 +104,7 @@ class Home extends React.Component {
                         </div>
                     </Layout>
                 </div>
-                <div className='bg-blue-50'>
+                <div className='bg-c-bg-blue-s'>
                     <Marquee speed={50} gradient={false}>
                         <div className='py-5 px-7 sm:px-12 md:px-40'>
                             <div className='py-10 lg:py-14 flex gap-12 sm:gap-28 lg:gap-48'>
@@ -156,7 +157,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </Layout>
-                <div className='bg-c-bg-blue'>
+                <div className='bg-c-bg-blue-s'>
                     <Layout>
                         <div className='py-20 flex flex-col gap-14'>
                             <div className='flex flex-col justify-center gap-0 lg:gap-2'>
@@ -201,6 +202,7 @@ class Home extends React.Component {
                         </div>
                     </Layout>
                 </div>
+                <Footer />
             </>
         );
     }
