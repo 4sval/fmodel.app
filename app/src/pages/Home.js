@@ -186,7 +186,7 @@ class Home extends React.Component {
                 </div>
                 <div className='bg-blue-500'>
                     <Layout>
-                        <div className='px-20 py-10 lg:py-20 text-white flex flex-col md:flex-row justify-between items-center gap-10'>
+                        <div className='px-5 md:px-20 py-10 lg:py-20 text-white flex flex-col md:flex-row justify-between items-center gap-10'>
                             <div className='space-y-5'>
                                 <h1 className='text-3xl sm:text-4xl lg:text-5xl font-black'>Are you ready<br />for becoming a data-miner</h1>
                                 <p className='font-light text-sm sm:text-base'>It's your time to shine, download FModel now, and explore the world of game assets.</p>
