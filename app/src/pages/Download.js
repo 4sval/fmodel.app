@@ -13,15 +13,10 @@ class Download extends React.Component {
     }
 
     componentDidMount() {
-        fetch(GitHubPermanentDownloadUrl)
-            .then(res => res.blob())
-            .then(blob => {
-                let url = window.URL.createObjectURL(blob);
-                let a = document.createElement('a');
-                a.href = url;
-                a.download = 'FModel.zip';
-                a.click();
-            });
+        let a = document.createElement('a');
+        a.href = GitHubPermanentDownloadUrl;
+        a.download = 'FModel.zip';
+        a.click();
     }
 
     render() {
