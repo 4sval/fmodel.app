@@ -35,7 +35,7 @@ class Navbar extends React.Component {
                             </button>
 
                             <div className='hidden flex-1 md:flex flex-row justify-evenly lg:justify-end items-center gap-4 text-xs'>
-                                <a className='flex-1 lg:flex-none py-1 px-4 rounded font-medium hover:bg-gray-50 focus:ring-2 focus:ring-gray-100' style={{ pointerEvents: 'none' }} href='/docs'>Documentation</a>
+                                <a className='flex-1 lg:flex-none py-1 px-4 rounded font-medium hover:bg-gray-50 focus:ring-2 focus:ring-gray-100' href='/docs'>Documentation</a>
                                 <a className='flex-1 lg:flex-none py-1 px-4 rounded font-medium hover:bg-gray-50 focus:ring-2 focus:ring-gray-100' href='/github' target="_blank">Source Code</a>
                                 <a className='flex-1 lg:flex-none py-1 px-4 rounded font-medium hover:bg-gray-50 focus:ring-2 focus:ring-gray-100' href='/discord' target="_blank">Discord</a>
                                 <a className='flex-1 lg:flex-none py-1 px-4 rounded font-medium hover:bg-gray-50 focus:ring-2 focus:ring-gray-100' href='/donate' target="_blank">Donate</a>
@@ -52,7 +52,7 @@ class Navbar extends React.Component {
                                 isOpen &&
                                 <div className='md:hidden z-10 absolute left-0 top-0 w-screen py-3.5 shadow-lg bg-gray-800'>
                                     <div className='flex flex-col items-center gap-2 text-sm text-center text-white'>
-                                        <a className='py-1.5 w-1/2 rounded-sm font-medium focus:bg-white focus:text-gray-800' style={{ pointerEvents: 'none' }} href='/docs'>Documentation</a>
+                                        <a className='py-1.5 w-1/2 rounded-sm font-medium focus:bg-white focus:text-gray-800' href='/docs'>Documentation</a>
                                         <a className='py-1.5 w-1/2 rounded-sm font-medium focus:bg-white focus:text-gray-800' href='/github' target="_blank">Source Code</a>
                                         <a className='py-1.5 w-1/2 rounded-sm font-medium focus:bg-white focus:text-gray-800' href='/discord' target="_blank">Discord</a>
                                         <a className='py-1.5 w-1/2 rounded-sm font-medium focus:bg-white focus:text-gray-800' href='/donate' target="_blank">Donate</a>

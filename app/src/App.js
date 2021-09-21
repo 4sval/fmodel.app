@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { DiscordInviteUrl, PaypalDonateUrl, GitHubRepoUrl, GitHubPermanentDownloadUrl } from './Constants';
+import { DiscordInviteUrl, PaypalDonateUrl, GitHubRepoUrl } from './Constants';
 import Home from './pages/Home';
 import Documentation from './pages/Documentation';
 import Download from './pages/Download';
@@ -19,8 +19,8 @@ class App extends React.Component {
 				<Switch>
 					{/* real pages */}
 					<Route exact path='/' component={Home} />
-					<Route exact path='/docs' component={Documentation} />
-					{/* <Route exact path='/download' component={Download} /> */}
+					{/* <Route exact path='/docs' component={Documentation} /> */}
+					<Route exact path='/download' component={Download} />
 
 					{/* redirects */}
 					<Route exact path='/discord' component={() => {
@@ -29,10 +29,6 @@ class App extends React.Component {
 					}} />
 					<Route exact path='/donate' component={() => {
 						window.location.replace(PaypalDonateUrl);
-						return null;
-					}} />
-					<Route exact path='/download' component={() => {
-						window.location.replace(GitHubPermanentDownloadUrl);
 						return null;
 					}} />
 					<Route exact path='/github' component={() => {
