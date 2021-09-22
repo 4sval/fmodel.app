@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import SpCard from '../components/SpCard';
 import AbilityCard from '../components/AbilityCard';
 import FeatureCard from '../components/FeatureCard';
-import { formatBytes } from '../helpers/Helper';
+import { formatBytes } from '../Helpers';
 import { UnrealEngineUrl } from '../Constants';
 import { ReactComponent as List } from '../assets/svgs/list.svg';
 import { ReactComponent as Visual } from '../assets/svgs/visual.svg';
