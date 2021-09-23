@@ -71,7 +71,7 @@ class Home extends React.Component {
         const { starCount, forkCount, downloadCount, createdAt, latest } = this.state;
         return (
             <>
-                <Navbar />
+                <Navbar background='md:bg-c-bg-blue-h' />
                 <div className='bg-c-bg-blue-h'>
                     <Layout>
                         <div className='my-5 flex flex-col-reverse lg:flex-row justify-between lg:justify-center items-center'>

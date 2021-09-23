@@ -18,9 +18,10 @@ class Navbar extends React.Component {
     }
 
     render() {
+        const { background } = this.props;
         const { isOpen } = this.state;
         return (
-            <div className='fixed md:relative z-10 md:bg-c-bg-blue-h'>
+            <div className={`fixed md:relative z-10 ${background ?? 'md:bg-gray-50 md:border-b md:border-gray-200'}`}>
                 <div className='py-3.5'>
                     <Layout>
                         <nav className='flex flex-row justify-evenly items-center gap-4 text-gray-800 whitespace-nowrap'>
@@ -52,7 +53,7 @@ class Navbar extends React.Component {
                                         }
                                         else {
                                             return (
-                                                <a className={`flex-1 lg:flex-none py-1 px-4 rounded text-center font-medium ${item.active ? 'bg-gray-50' : 'hover:underline'} focus:ring-2 focus:ring-gray-100`} key={index} href={item.url} target={item.newTab ? '_blank' : '_self'} rel='noreferrer'>{item.label}</a>
+                                                <a className={`flex-1 lg:flex-none py-1 px-4 rounded-full text-center font-medium ${item.active ? 'bg-gray-800 text-white' : 'hover:underline'}`} key={index} href={item.url} target={item.newTab ? '_blank' : '_self'} rel='noreferrer'>{item.label}</a>
                                             )
                                         }
                                     })
