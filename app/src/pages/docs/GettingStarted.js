@@ -56,7 +56,7 @@ class GettingStarted extends React.Component {
                             <p>folder dedicated to log files created by FModel</p>
 
                             <code className='text-red-700 text-center'>Saves</code>
-                            <p>contains assets' properties (.json) as well as meshes (.psk), materials (.mat), animations (.psa), ...</p>
+                            <p>contains assets' properties (.json) as well as meshes (.psk), materials (.mat) and animations (.psa) files</p>
 
                             <code className='text-red-700 text-center'>Sounds</code>
                             <p>folder dedicated to audio files saved from the audio player</p>
