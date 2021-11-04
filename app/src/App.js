@@ -4,7 +4,6 @@ import { DiscordInviteUrl, PaypalDonateUrl, GitHubRepoUrl } from './Constants';
 import { Items } from './utils/NavbarItems';
 import Home from './pages/Home';
 import GettingStarted from './pages/docs/GettingStarted';
-import Installation from './pages/docs/Installation';
 import Download from './pages/Download';
 import NotFound from './pages/NotFound';
 
@@ -24,7 +23,6 @@ class App extends React.Component {
 					{/* real pages */}
 					<Route exact path='/' component={Home} />
 					<Route exact path='/docs' component={GettingStarted} />
-                    <Route exact path='/docs/installation' component={Installation} />
 					<Route exact path='/download' component={Download} />
 
 					{/* redirects */}

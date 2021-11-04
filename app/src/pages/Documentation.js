@@ -20,18 +20,18 @@ class Documentation extends React.Component {
 
                 <Navbar />
                 <Layout>
-                    <div className='flex'>
+                    {/* <div className='flex'>
                         <div className='w-60'>
                             <nav>
                                 <ul>
-                                    <li><a>Documentation</a></li>
+                                    <li><a href='/'>Documentation</a></li>
                                 </ul>
                             </nav>
-                        </div>
-                        <div className='w-full p-10'>
+                        </div> */}
+                        <div className='w-full p-10 flex flex-col gap-10 text-gray-800'>
                             {this.props.children}
                         </div>
-                    </div>
+                    {/* </div> */}
                 </Layout>
                 <Footer />
             </>
