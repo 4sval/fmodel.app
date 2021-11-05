@@ -3,6 +3,8 @@ import Documentation from "../Documentation";
 import LearningCard from "../../components/LearningCard";
 import Anchor from "../../components/Anchor";
 import CodeSnippet from "../../components/CodeSnippet";
+import Paginer from "../../components/Paginer";
+import { Folders } from "../../utils/CreatedFolders";
 
 class GettingStarted extends React.Component {
     constructor(props) {
@@ -41,29 +43,40 @@ class GettingStarted extends React.Component {
                         <p>Once you have installed FModel, the first thing it is going to do is, either get your configuration file back or if it doesn't exist yet, create one for you with default settings in it. This means that, if someday you want to <strong>reset your settings</strong>, you will need to delete the files inside the <code className='text-red-700'>`%appdata%/FModel`</code> folder. As shown below, if you are building the project from your IDE, it will use a different file, so a different configuration.</p>
                         <CodeSnippet code={configLocation} language='csharp' source='https://github.com/iAmAsval/FModel/blob/dev/FModel/Settings/UserSettings.cs#L19-L23' />
 
-                        <p>Once FModel has your configuration back, it will verify if all required folders are still present in your configured <span className='italic'>Output Directory</span>. <strong>Don't delete any of these folders</strong> while FModel is running as they won't be re-created before the next launch and can cause errors meanwhile.</p>
-                        <div className='mt-1 grid grid-cols-2 grid-flow-row border border-collapse'>
-                            <code className='text-red-700 text-center'>.data</code>
-                            <p>important trash folder</p>
+                        <p>FModel now has your configuration back, and it will verify if all required folders are still present in your configured <span className='italic'>Output Directory</span>. <strong>Don't delete any of these folders</strong> while FModel is running as they won't be re-created before the next launch and can cause errors in the meantime.</p>
+                        <table className='table-fixed w-full border border-gray-200 mb-4'>
+                            <thead>
+                                <tr>
+                                    <th className='w-1/5'></th>
+                                    <th className='w-1/6'></th>
+                                    <th className='w-full'></th>
+                                </tr>
+                            </thead>
+                            <tbody className='text-base'>
+                                {
+                                    Folders.map((folder, index) => {
+                                        return (
+                                            <tr key={index} className={`bg-gray-${(index % 2 ? '100' : '50')}`}>
+                                                <td className='font-bold font-subtitle'>{folder.name}</td>
+                                                <td>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" />
+                                                    </svg>
+                                                </td>
+                                                <td>{folder.description}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
 
-                            <code className='text-red-700 text-center'>Backups</code>
-                            <p>holds all created and downloaded .fbkp backup files</p>
-
-                            <code className='text-red-700 text-center'>Exports</code>
-                            <p>contains the raw data of exported assets (.uasset, .uexp, .ubulk, .uptnl, .bin, ...)</p>
-
-                            <code className='text-red-700 text-center'>Logs</code>
-                            <p>folder dedicated to log files created by FModel</p>
-
-                            <code className='text-red-700 text-center'>Saves</code>
-                            <p>contains assets' properties (.json) as well as meshes (.psk), materials (.mat) and animations (.psa) files</p>
-
-                            <code className='text-red-700 text-center'>Sounds</code>
-                            <p>folder dedicated to audio files saved from the audio player</p>
-
-                            <code className='text-red-700 text-center'>Textures</code>
-                            <p>folder dedicated to textures</p>
+                        <div className='mb-4'>
+                            <p>choose a directory here</p>
                         </div>
+
+                        <p>Now that all required folders are present, and FModel knows what game to load, let's dive deeper and start learning the real things.</p>
+                        <Paginer rightLabel='Game Loader' rightHref='/docs/game-loader' />
                     </div>
                 </div>
             </Documentation>
