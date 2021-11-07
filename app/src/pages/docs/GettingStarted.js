@@ -5,6 +5,7 @@ import Anchor from "../../components/Anchor";
 import CodeSnippet from "../../components/CodeSnippet";
 import Paginer from "../../components/Paginer";
 import { Folders } from "../../utils/CreatedFolders";
+import { ReactComponent as DirectorySelector } from '../../assets/svgs/docs/directory_selector.svg';
 
 class GettingStarted extends React.Component {
     constructor(props) {
@@ -70,12 +71,19 @@ class GettingStarted extends React.Component {
                                 }
                             </tbody>
                         </table>
-
-                        <div className='mb-4'>
-                            <p>choose a directory here</p>
+                    </div>
+                    <div className='flex justify-between gap-10'>
+                        <div className='w-1/2'>
+                            <Anchor id='directory-selector' title='Directory Selector' />
+                            <p className='break-words'>If everything goes well, you will be prompted to select a game. By default, FModel will try to auto-detect compatible installed games. If yours is not on the list, simply add it manually. Afterward, the Directory Selector will close itself and the main FModel window will open.</p>
                         </div>
-
-                        <p>Now that all required folders are present, and FModel knows what game to load, let's dive deeper and start learning the real things.</p>
+                        <DirectorySelector className='w-1/2' />
+                    </div>
+                    <div>
+                        <Anchor id='layout' title='Layout' />
+                    </div>
+                    <div>
+                        <p>Now that you have a good overview of what FModel is made of, let's dive deeper and start learning the real things.</p>
                         <Paginer rightLabel='Game Loader' rightHref='/docs/game-loader' />
                     </div>
                 </div>
