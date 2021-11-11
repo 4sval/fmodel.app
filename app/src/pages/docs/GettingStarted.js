@@ -6,6 +6,7 @@ import CodeSnippet from "../../components/CodeSnippet";
 import Paginer from "../../components/Paginer";
 import { Folders } from "../../utils/CreatedFolders";
 import { ReactComponent as DirectorySelector } from '../../assets/svgs/docs/directory_selector.svg';
+import layout from '../../assets/gifs/layout.gif';
 
 class GettingStarted extends React.Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class GettingStarted extends React.Component {
                 <div className='flex flex-col text-lg font-light text-gray-500 space-y-10'>
                     <div>
                         <Anchor id='installation' title='Installation' />
-                        <p className='italic mb-4'>FModel requires you to have <strong>.NET 5.0 or later installed</strong>. If you don't already have it, you can <a className='underline' href='https://dotnet.microsoft.com/download/dotnet/5.0/runtime' target='_blank' rel='noreferrer'>download it here</a> and select the <strong>Windows Desktop x64</strong> version.</p>
+                        <p className='admonition admonition-warning'>FModel requires you to have <strong>.NET 6.0 or later installed</strong>. If you don't already have it, you can <a className='underline' href='https://dotnet.microsoft.com/download/dotnet/6.0/runtime' target='_blank' rel='noreferrer'>download it here</a> and select the <strong>Windows Desktop x64</strong> version.</p>
                         <p>We provide a portable 64-bit Windows executable of FModel, it is super easy to install. In fact, you only have to <a className='font-bold underline text-blue-500' href='/download' target='_blank' rel='noreferrer'>download the compressed archive</a> containing the executable, uncompress that archive and launch the executable. FModel uses configuration files in order to save your settings, it is not recommended to launch the executable inside the compressed archive.</p>
                     </div>
                     <div>
@@ -79,8 +80,18 @@ class GettingStarted extends React.Component {
                         </div>
                         <DirectorySelector className='w-1/2' />
                     </div>
-                    <div>
-                        <Anchor id='layout' title='Layout' />
+                    <div className='flex items-center gap-10'>
+                        <img className='w-2/3' src={layout} alt='layout' />
+                        <div className='w-1/3'>
+                            <Anchor id='layout' title='Layout' />
+                            <p>The main FModel window consists in 3 areas, one of which is paginated by tabs for the sake of the UX.</p>
+                            <br />
+                            <p>You can see the left area as a <strong style={{color: '#e3bb54'}}>Navigation Bar</strong>, it contains all the game files you can load based on the game directory you chose to use. But it will also display the folder structure of the game and a list of assets found in these folders.</p>
+                            <br />
+                            <p>The top one is a <strong style={{color: '#5767f2'}}>Property Viewer</strong> so it will display the properties of the asset you will extract. It has support for previewing images in case the asset is a texture or is referenced as a cosmetic by FModel. You can look at up to 25 assets at the same time.</p>
+                            <br />
+                            <p>The bottom area is a <strong style={{color: '#e35354'}}>Simplified Console</strong> to keep track of your actions on FModel. You can choose to close it but if you encounter an error, don't forget to reopen it before reaching out to us.</p>
+                        </div>
                     </div>
                     <div>
                         <p>Now that you have a good overview of what FModel is made of, let's dive deeper and start learning the real things.</p>

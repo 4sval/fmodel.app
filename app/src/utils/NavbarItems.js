@@ -12,7 +12,7 @@ export const Items = [
         style: STYLES.DEFAULT
     },
     {
-        label: 'Documentation',
+        label: 'Documentation [WIP]',
         url: '/docs',
         active: false,
         newTab: false,

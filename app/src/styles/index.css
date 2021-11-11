@@ -21,3 +21,17 @@
     -webkit-mask-image: url('../assets/svgs/blob.svg');
     mask-image: url('../assets/svgs/blob.svg');
 }
+
+.admonition {
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    background-color: #fafafa;
+    border-radius: 0.15rem;
+    border: 1px solid #eaeaea;
+}
+
+.admonition-warning {
+    border-left: 0.4rem solid #faa61f;
+}
