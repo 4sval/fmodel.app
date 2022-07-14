@@ -43,7 +43,7 @@ class GettingStarted extends React.Component {
                     <div>
                         <Anchor id='first-launch' title='First Launch' />
                         <p>Once you have installed FModel, the first thing it is going to do is, either get your configuration file back or if it doesn't exist yet, create one for you with default settings in it. This means that, if someday you want to <strong>reset your settings</strong>, you will need to delete the files inside the <code className='text-red-700'>`%appdata%/FModel`</code> folder. As shown below, if you are building the project from your IDE, it will use a different file, so a different configuration.</p>
-                        <CodeSnippet code={configLocation} language='csharp' source='https://github.com/iAmAsval/FModel/blob/dev/FModel/Settings/UserSettings.cs#L19-L23' />
+                        <CodeSnippet code={configLocation} language='csharp' source='https://github.com/4sval/FModel/blob/dev/FModel/Settings/UserSettings.cs#L19-L23' />
 
                         <p>FModel now has your configuration back, and it will verify if all required folders are still present in your configured <span className='italic'>Output Directory</span>. <strong>Don't delete any of these folders</strong> while FModel is running as they won't be re-created before the next launch and can cause errors in the meantime.</p>
                         <table className='table-fixed w-full border border-gray-200 mb-4'>

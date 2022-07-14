@@ -3,9 +3,9 @@ module.exports = {
 
     TwitterUrl: 'https://twitter.com/FModelApp',
 
-    GitHubRepoUrl: 'https://github.com/iAmAsval/FModel',
+    GitHubRepoUrl: 'https://github.com/4sval/FModel',
     GitHubOrgUrl: 'https://github.com/FModel',
-    GitHubPermanentDownloadUrl: 'https://github.com/iAmAsval/FModel/releases/latest/download/FModel.zip',
+    GitHubPermanentDownloadUrl: 'https://github.com/4sval/FModel/releases/latest/download/FModel.zip',
 
     DiscordInviteUrl: 'https://discord.gg/fdkNYYQ',
 

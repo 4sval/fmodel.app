@@ -37,7 +37,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://api.github.com/repos/iAmAsval/FModel', { cache: "force-cache" })
+        fetch('https://api.github.com/repos/4sval/FModel', { cache: "force-cache" })
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -46,24 +46,35 @@ class Home extends React.Component {
                     createdAt: data.created_at,
                 });
 
-                fetch(data.releases_url.replace('{/id}', ''), { cache: "force-cache" })
-                    .then(res => res.json())
-                    .then(releases => {
-                        releases.forEach(release => {
-                            const asset = release.assets.find(a => a.name === 'FModel.zip' && a.state === 'uploaded');
-                            if (!asset) return;
+                this.countDownloads(data.releases_url.replace('{/id}', ''));
+            });
+    }
 
-                            this.setState((prevState) => ({
-                                downloadCount: prevState.downloadCount + asset.download_count,
-                                latest: {
-                                    version: prevState.latest.version ?? release.tag_name,
-                                    downloadCount: prevState.latest.downloadCount ?? asset.download_count,
-                                    zipSize: prevState.latest.zipSize ?? asset.size,
-                                    updatedAt: prevState.latest.updatedAt ?? asset.updated_at
-                                }
-                            }));
-                        });
-                    });
+    countDownloads = (url) => {
+        fetch(url, { cache: "force-cache" })
+            .then(res => Promise.all([res.json(), res.headers.get('Link')]))
+            .then(([releases, link]) => {
+                releases.forEach(release => {
+                    const asset = release.assets.find(a => a.name === 'FModel.zip' && a.state === 'uploaded');
+                    if (!asset) return;
+
+                    this.setState((prevState) => ({
+                        downloadCount: prevState.downloadCount + asset.download_count,
+                        latest: {
+                            version: prevState.latest.version ?? release.tag_name,
+                            downloadCount: prevState.latest.downloadCount ?? asset.download_count,
+                            zipSize: prevState.latest.zipSize ?? asset.size,
+                            updatedAt: prevState.latest.updatedAt ?? asset.updated_at
+                        }
+                    }));
+                });
+
+                if (link) {
+                    const next = link.match(/<(.*?)>; rel="next"/);
+                    if (next) {
+                        this.countDownloads(next[1]);
+                    }
+                }
             });
     }
 
