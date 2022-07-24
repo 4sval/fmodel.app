@@ -52,8 +52,9 @@ class Home extends React.Component {
 
     countDownloads = (url) => {
         fetch(url, { cache: "force-cache" })
-            .then(res => Promise.all([res.json(), res.headers.get('Link')]))
-            .then(([releases, link]) => {
+            .then(res => Promise.all([res.status, res.json(), res.headers.get('Link')]))
+            .then(([status, releases, link]) => {
+                if (status !== 200) return;
                 releases.forEach(release => {
                     const asset = release.assets.find(a => a.name === 'FModel.zip' && a.state === 'uploaded');
                     if (!asset) return;
@@ -70,9 +71,9 @@ class Home extends React.Component {
                 });
 
                 if (link) {
-                    const next = link.match(/<(.*?)>; rel="next"/);
+                    const next = link.match(/<(.*?)>; *?rel="(.*?)"/gi).find(l => l.includes('; rel="next"'));
                     if (next) {
-                        this.countDownloads(next[1]);
+                        this.countDownloads(next.match(/<(.*?)>;/)[1]);
                     }
                 }
             });
