@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { DiscordInviteUrl, PaypalDonateUrl, GitHubRepoUrl } from './Constants';
+import { GitHubWikiUrl, DiscordInviteUrl, PaypalDonateUrl, GitHubRepoUrl } from './Constants';
 import { Items } from './utils/NavbarItems';
 import Home from './pages/Home';
-import GettingStarted from './pages/docs/GettingStarted';
 import Download from './pages/Download';
 import NotFound from './pages/NotFound';
 
@@ -22,10 +21,13 @@ class App extends React.Component {
 				<Switch>
 					{/* real pages */}
 					<Route exact path='/' component={Home} />
-					<Route exact path='/docs' component={GettingStarted} />
 					<Route exact path='/download' component={Download} />
 
 					{/* redirects */}
+					<Route exact path='/docs' component={() => {
+						window.location.replace(GitHubWikiUrl);
+						return null;
+					}} />
 					<Route exact path='/discord' component={() => {
 						window.location.replace(DiscordInviteUrl);
 						return null;

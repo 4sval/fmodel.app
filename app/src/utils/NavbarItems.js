@@ -15,7 +15,7 @@ export const Items = [
         label: 'Documentation [WIP]',
         url: '/docs',
         active: false,
-        newTab: false,
+        newTab: true,
         style: STYLES.DEFAULT
     },
     {

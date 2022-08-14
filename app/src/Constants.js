@@ -4,6 +4,7 @@ module.exports = {
     TwitterUrl: 'https://twitter.com/FModelApp',
 
     GitHubRepoUrl: 'https://github.com/4sval/FModel',
+    GitHubWikiUrl: 'https://github.com/4sval/FModel/wiki',
     GitHubOrgUrl: 'https://github.com/FModel',
     GitHubPermanentDownloadUrl: 'https://github.com/4sval/FModel/releases/latest/download/FModel.zip',
 
