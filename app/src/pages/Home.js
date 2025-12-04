@@ -8,7 +8,7 @@ import SpCard from '../components/SpCard';
 import AbilityCard from '../components/AbilityCard';
 import FeatureCard from '../components/FeatureCard';
 import { formatBytes } from '../Helpers';
-import { UnrealEngineUrl } from '../Constants';
+import { UnrealEngineUrl, FModelQaUrl } from '../Constants';
 import { ReactComponent as List } from '../assets/svgs/list.svg';
 import { ReactComponent as Visual } from '../assets/svgs/visual.svg';
 import { ReactComponent as Cubes } from '../assets/svgs/cubes.svg';
@@ -26,6 +26,7 @@ class Home extends React.Component {
             starCount: 0,
             forkCount: 0,
             downloadCount: 0,
+            releaseCount: 0,
             createdAt: undefined,
             latest: {
                 version: undefined,
@@ -48,6 +49,28 @@ class Home extends React.Component {
 
                 this.countDownloads(data.releases_url.replace('{/id}', ''));
             });
+        
+        fetch(FModelQaUrl, { cache: "force-cache" })
+            .then(res => res.json())
+            .then(fmodel => {
+                if (fmodel && fmodel.downloadUrl) {
+                    fetch('https://api.github.com/repos/4sval/FModel/releases/tags/qa', { cache: "force-cache" })
+                        .then(res => res.json())
+                        .then(git => {
+                            const asset = git.assets.find(a => a.browser_download_url === fmodel.downloadUrl && a.state === 'uploaded');
+                            if (!asset) return;
+
+                            this.setState({
+                                latest: {
+                                    version: asset.name.substring(0, 7),
+                                    downloadCount: asset.download_count,
+                                    zipSize: asset.size,
+                                    updatedAt: asset.updated_at
+                                }
+                            });
+                        });
+                }
+            });
     }
 
     countDownloads = (url) => {
@@ -55,18 +78,15 @@ class Home extends React.Component {
             .then(res => Promise.all([res.status, res.json(), res.headers.get('Link')]))
             .then(([status, releases, link]) => {
                 if (status !== 200) return;
+
                 releases.forEach(release => {
-                    const asset = release.assets.find(a => a.name === 'FModel.zip' && a.state === 'uploaded');
-                    if (!asset) return;
+                    // not precise but whatever
+                    const assets = release.assets.filter(a => a.name.endsWith('.zip') && a.state === 'uploaded');
+                    const releaseDownloads = assets.reduce((acc, asset) => acc + asset.download_count, 0);
 
                     this.setState((prevState) => ({
-                        downloadCount: prevState.downloadCount + asset.download_count,
-                        latest: {
-                            version: prevState.latest.version ?? release.tag_name,
-                            downloadCount: prevState.latest.downloadCount ?? asset.download_count,
-                            zipSize: prevState.latest.zipSize ?? asset.size,
-                            updatedAt: prevState.latest.updatedAt ?? asset.updated_at
-                        }
+                        downloadCount: prevState.downloadCount + releaseDownloads,
+                        releaseCount: prevState.releaseCount + 1
                     }));
                 });
 
@@ -80,7 +100,7 @@ class Home extends React.Component {
     }
 
     render() {
-        const { starCount, forkCount, downloadCount, createdAt, latest } = this.state;
+        const { starCount, forkCount, downloadCount, releaseCount, createdAt, latest } = this.state;
         return (
             <>
                 <Navbar background='md:bg-c-bg-blue-h' />
@@ -129,12 +149,12 @@ class Home extends React.Component {
                                 <div className='transform rotate-3 hover:rotate-0'>
                                     <SpCard size='w-80 h-24' title='DOWNLOADS' bgColor='#ffeded' lottieData={download}>
                                         <p className='text-xs text-gray-800 font-sans'>x{downloadCount.toLocaleString()} Total</p>
-                                        <p className='text-xs text-gray-800 font-sans'>x{latest?.downloadCount?.toLocaleString() ?? 0} Latest ({latest.version})</p>
+                                        <p className='text-xs text-gray-800 font-sans'>x{latest?.downloadCount?.toLocaleString() ?? 0} Latest</p>
                                     </SpCard>
                                 </div>
                                 <div className='transform rotate-1 hover:rotate-0'>
-                                    <SpCard title={`VERSION ${latest.version}`} bgColor='#f7edff' lottieData={folder}>
-                                        <p className='text-xs text-gray-800 font-sans'>{formatBytes(latest?.zipSize ?? 0)}</p>
+                                    <SpCard title='LATEST VERSION' bgColor='#f7edff' lottieData={folder}>
+                                        <p className='text-xs text-gray-800 font-sans'>QA ({latest?.version ?? 'N/A'}) - {formatBytes(latest?.zipSize ?? 0)}</p>
                                         <p className='text-xs text-gray-800 font-sans'>{new Date(latest.updatedAt).toDateString()}</p>
                                     </SpCard>
                                 </div>

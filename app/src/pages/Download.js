@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'lottie-react';
 import { Helmet } from 'react-helmet-async';
-import { GitHubPermanentDownloadUrl } from '../Constants';
+import { FModelQaUrl } from '../Constants';
 import Layout from '../components/Layout';
 import checkmark from '../assets/lotties/checkmark.json';
 
@@ -13,10 +13,19 @@ class Download extends React.Component {
     }
 
     componentDidMount() {
-        let a = document.createElement('a');
-        a.href = GitHubPermanentDownloadUrl;
-        a.download = 'FModel.zip';
-        a.click();
+        fetch(FModelQaUrl, { cache: "force-cache" })
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.downloadUrl) {
+                    let a = document.createElement('a');
+                    a.href = data.downloadUrl;
+                    a.click();
+                    a.remove();
+                }
+                else {
+                    console.error('Download URL not found in the response.');
+                }
+            });
     }
 
     render() {

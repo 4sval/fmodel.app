@@ -1,6 +1,8 @@
 module.exports = {
     UnrealEngineUrl: 'https://www.unrealengine.com/',
 
+    FModelQaUrl: 'https://api.fmodel.app/v1/infos/Qa',
+
     TwitterUrl: 'https://twitter.com/FModelApp',
 
     GitHubRepoUrl: 'https://github.com/4sval/FModel',
